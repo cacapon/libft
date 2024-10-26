@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 18:23:53 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/26 18:46:49 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/10/26 18:45:10 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/10/26 18:46:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int ft_isalnum(int c);
-int ft_isascii(int c);
-
-#endif
+int ft_isascii(int c)
+{
+	return (0 <= c && c <= 127);
+}

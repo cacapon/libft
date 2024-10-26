@@ -6,13 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:45:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/26 18:46:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/26 18:56:46 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	return (0 <= c && c <= 127);
 }

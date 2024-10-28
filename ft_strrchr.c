@@ -6,17 +6,27 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:12:21 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/28 12:22:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/28 13:58:38 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	_strlen(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s);
+	i = _strlen(s);
 	while (i >= 0)
 	{
 		if (s[i] == (char)c)

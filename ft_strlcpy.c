@@ -6,13 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:30:54 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/28 13:58:20 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/28 16:15:46 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	_strlen(char *str)
+static int	_strlen(const char *str)
 {
 	int	len;
 

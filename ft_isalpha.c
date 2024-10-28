@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:27:37 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/28 13:55:46 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/28 16:13:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ static int	_is_upper(int c)
 
 int	ft_isalpha(int c)
 {
-	return (_is_lower(c) || is_upper(c));
+	return (_is_lower(c) || _is_upper(c));
 }

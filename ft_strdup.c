@@ -5,29 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 15:12:30 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/25 13:24:57 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/10/28 12:00:38 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/10/28 12:01:17 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {
 	char	*dst;
 	char	*dstp;
 
-	dst = (char *)malloc(sizeof(_strlen(src)+1));
+	dst = (char *)malloc(sizeof(ft_strlen(src) + 1));
 	if (!dst)
 		return (NULL);
 	dstp = dst;

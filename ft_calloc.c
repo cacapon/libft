@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:38:47 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/28 15:58:21 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/29 14:21:59 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t	_size;
 	void	*_block;
 
-	if (!count || !size)
-		return (NULL);
 	if (size > SIZE_MAX / count)
 		return (NULL);
 	_size = count * size;

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:15:17 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/29 16:14:48 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,20 @@ static int	_strlen(const char *str)
 	return (len);
 }
 
-static void	*_memcpy(void *dst, const void *src, size_t len)
+static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	size_t	copied;
 
-	if (dst == NULL || src == NULL)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < len)
+	copied = 0;
+	if (dstsize == 0)
+		return (_strlen(src));
+	while (copied < dstsize - 1 && *src)
 	{
-		d[i] = s[i];
-		i++;
+		*dst++ = *src++;
+		copied++;
 	}
-	return (dst);
-}
-
-static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	src_length;
-
-	src_length = _strlen(src);
-	if ((src_length >= dstsize))
-	{
-		if (dstsize > 0)
-		{
-			_memcpy(dst, src, dstsize);
-			dst[dstsize - 1] = '\0';
-		}
-	}
-	else
-		_memcpy(dst, src, src_length + 1);
-	return (src_length);
+	*dst = '\0';
+	return (copied + _strlen(src));
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

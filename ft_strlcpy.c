@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:30:54 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 14:40:20 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/29 15:58:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,18 @@ static int	_strlen(const char *str)
 	return (len);
 }
 
-static void	*_memcpy(void *dst, const void *src, size_t len)
-{
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
-
-	if (dst == NULL || src == NULL)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
-}
-
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	src_length;
+	size_t	copied;
 
-	src_length = _strlen(src);
-	if ((src_length >= dstsize))
+	copied = 0;
+	if (dstsize == 0)
+		return (_strlen(src));
+	while (copied < dstsize - 1 && *src)
 	{
-		if (dstsize > 0)
-		{
-			_memcpy(dst, src, dstsize);
-			dst[dstsize - 1] = '\0';
-		}
+		*dst++ = *src++;
+		copied++;
 	}
-	else
-		_memcpy(dst, src, src_length + 1);
-	return (src_length);
+	*dst = '\0';
+	return (copied + _strlen(src));
 }

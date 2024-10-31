@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 16:14:48 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/31 19:57:33 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	_strlen(const char *str)
 	return (len);
 }
 
-static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	copied;
 
@@ -53,6 +53,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = malloc(len + 1);
 	if (sub == NULL)
 		return (NULL);
-	_strlcpy(sub, s, len);
+	_strlcpy(sub, s + start, len + 1);
 	return (sub);
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:16:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/31 16:13:05 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/31 19:32:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,41 +50,19 @@ static size_t	_strlcat(char *dst, const char *src, size_t dstsize)
 	return (l + _strlcpy(dst + l, src, dstsize - l));
 }
 
-static char	*_strdup(const char *s1)
-{
-	size_t	i;
-	size_t	l;
-	char	*d;
-
-	i = 0;
-	l = _strlen(s1);
-	d = malloc(l + 1);
-	if (!d)
-		return (NULL);
-	while (i < l)
-	{
-		d[i] = s1[i];
-		i++;
-	}
-	d[i] = '\0';
-	return (d);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;
 	char	*new_str;
 
-	if (!s1 && !s2)
+	if (s1 == NULL)
 		return (NULL);
-	if (!s1)
-		return (_strdup(s2));
-	if (!s2)
-		return (_strdup(s1));
+	if (s2 == NULL)
+		return (NULL);
 	s1_len = _strlen(s1);
 	s2_len = _strlen(s2);
-	new_str = malloc(s1_len + s2_len + 1);
+	new_str = (char *)malloc(s1_len + s2_len + 1);
 	if (new_str == NULL)
 		return (NULL);
 	_strlcpy(new_str, s1, s1_len + 1);

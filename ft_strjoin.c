@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:16:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 16:07:14 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/10/31 16:13:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (copied + _strlen(src));
 }
 
-static size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+static size_t	_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	l;
 

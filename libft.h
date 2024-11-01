@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 21:28:06 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/01 21:40:08 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *b, size_t len);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 

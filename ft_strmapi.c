@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 20:45:44 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/11/01 20:21:04 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/11/01 20:46:31 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// (n <= 0)... True:1 False:0
-static int	_numlen(int n)
-{
-	int	len;
-
-	len = (n <= 0);
-	if (n < 0)
-		n = -n;
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
 
 static int	_strlen(const char *str)
 {
@@ -71,30 +55,19 @@ static char	*_strdup(const char *s1)
 	return ((char *)_memcpy(d, s1, l + 1));
 }
 
-char	*ft_itoa(int n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*s;
-	int		len;
-	int		num;
+	unsigned int	i;
+	char			*new_s;
 
-	num = n;
-	if (n == 0)
-		return (_strdup("0"));
-	if (n == INT_MIN)
-		return (_strdup("-2147483648"));
-	len = _numlen(n);
-	s = (char *)malloc(len + (n < 0));
-	if (!s)
+	new_s = _strdup(s);
+	if (new_s == NULL)
 		return (NULL);
-	s[len - (n >= 0)] = '\0';
-	if (n < 0)
-		num = -n;
-	while (num)
+	i = 0;
+	while (s[i])
 	{
-		s[--len] = (num % 10) + '0';
-		num /= 10;
+		new_s[i] = f(i, s[i]);
+		i++;
 	}
-	if (n < 0)
-		s[0] = '-';
-	return (s);
+	return (new_s);
 }

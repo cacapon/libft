@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:00:38 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 14:39:29 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/01 20:44:29 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*ft_strdup(const char *s1)
 	size_t	l;
 	char	*d;
 
+	if (s1 == NULL)
+		return (NULL);
 	l = _strlen(s1);
 	d = malloc(l + 1);
 	if (!d)

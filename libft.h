@@ -6,15 +6,15 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 21:14:45 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/01 21:20:38 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdlib.h>
-# include <stdint.h>
 # include <limits.h>
+# include <stdint.h>
+# include <stdlib.h>
 
 char	*ft_itoa(int n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -45,7 +45,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *b, size_t len);
-void 	ft_putchar_fd(char c, int fd);
-void	ft_striteri(char *s, void (*f)(unsigned int,char*));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 16:13:42 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/01 10:57:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,33 +22,44 @@ static size_t	_strlen(const char *str)
 	return (len);
 }
 
-static char	*_strdup(const char *s1)
+static int	_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	size_t	l;
-	char	*d;
 
 	i = 0;
-	l = _strlen(s1);
-	d = malloc(l + 1);
-	if (!d)
-		return (NULL);
-	while (i < l)
+	while (i < n && s1[i] && s2[i])
 	{
-		d[i] = s1[i];
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	d[i] = '\0';
-	return (d);
+	if (i < n)
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (0);
 }
 
-//「malloc(3) を使ってメモリを割り当て、文字列の先頭と末尾から set に指定された文字を削除した s1 のコピーを返します。」
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *trim_str;
+	size_t	i;
+	size_t	s1_len;
+	char	*trim_str;
 
-	trim_str = _strdup(s1);
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return (s1);
+	s1_len = _strlen(s1);
+	trim_str = malloc(s1_len + 1);
 	if (trim_str == NULL)
 		return (NULL);
-	
+	return (s1);
+	i = 0;
+	while (s1[i])
+	{
+		if (_strncmp(&s1[i], set, s1_len - i) != 0)
+			trim_str[i] = s1;
+		i++;
+	}
+	trim_str[i] = '\0';
+	return (trim_str);
 }

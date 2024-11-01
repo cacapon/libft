@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 11:51:46 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/01 17:37:00 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,48 +38,43 @@ static int	_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
-static char	*_strdup(const char *s1)
+static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	char	*d;
+	size_t	copied;
 
-	if (s1 == NULL)
-		return (NULL);
-	d = malloc(_strlen(s1) + 1);
-	if (!d)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	copied = 0;
+	if (dstsize == 0)
+		return (_strlen(src));
+	while (copied < dstsize - 1 && *src)
 	{
-		d[i] = s1[i];
-		i++;
+		*dst++ = *src++;
+		copied++;
 	}
-	d[i] = '\0';
-	return (d);
+	*dst = '\0';
+	return (copied + _strlen(src));
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	s1_i;
-	size_t	trim_str_i;
+	size_t	st;
+	size_t	ed;
+	size_t	s1_len;
+	size_t	set_len;
 	char	*trim_str;
 
-	if (s1 == NULL)
+	if (s1 == NULL || *s1 == '\0' || set == NULL || *set == '\0')
 		return (NULL);
-	if (set == NULL || *set == '\0')
-		return (_strdup(s1));
-	trim_str = (char *)malloc(_strlen(s1) + 1);
+	st = 0;
+	s1_len = _strlen(s1);
+	ed = s1_len;
+	set_len = _strlen(set);
+	while (st < ed && !_strncmp(&s1[st], set, set_len))
+		st += set_len;
+	while (ed > st && !_strncmp(&s1[ed - set_len], set, set_len))
+		ed -= set_len;
+	trim_str = malloc(ed - st + 1);
 	if (trim_str == NULL)
 		return (NULL);
-	s1_i = 0;
-	trim_str_i = 0;
-	while (s1[s1_i])
-	{
-		if (_strncmp(&s1[s1_i], set, _strlen(set)) == 0)
-			s1_i += _strlen(set);
-		else
-			trim_str[trim_str_i++] = s1[s1_i++];
-	}
-	trim_str[trim_str_i] = '\0';
+	_strlcpy(trim_str, s1 + st, ed - st + 1);
 	return (trim_str);
 }

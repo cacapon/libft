@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:08:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:49:10 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	s_len = (size_t)ft_strlen(s);
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return ft_strdup("");
 	if (start + len >= s_len)

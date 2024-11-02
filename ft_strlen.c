@@ -6,16 +6,18 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:57:35 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/26 18:58:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:46:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	int	len;
 
 	len = 0;
-	while (str[len])
+	while (s[len])
 		len++;
 	return (len);
 }

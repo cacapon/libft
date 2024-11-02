@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 09:59:27 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:06:36 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:49:12 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	d_l;
 	size_t	s_l;
 
-	d_l = (size_t)ft_strlen(dst);
-	s_l = (size_t)ft_strlen(src);
+	d_l = ft_strlen(dst);
+	s_l = ft_strlen(src);
 	if (d_l >= dstsize)
 		d_l = dstsize;
 	if (d_l == dstsize)

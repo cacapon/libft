@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 12:05:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 12:31:10 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || *s1 == '\0' || set == NULL || *set == '\0')
 		return (NULL);
 	st = 0;
-	ed = _strlen(s1);
-	while (st < ed && _strchr(set, s1[st]) != NULL)
+	ed = _strlen(s1) - 1;
+	while (st <= ed && _strchr(set, s1[st]) != NULL)
 		st++;
-	while (ed > st && _strchr(set, s1[ed]) != NULL)
+	while (ed >= st && _strchr(set, s1[ed]) != NULL)
 		ed--;
-	ed++;
-	trim_str = malloc(ed - st + 1);
+	trim_str = malloc(ed - st + 2);
 	if (trim_str == NULL)
 		return (NULL);
-	_strlcpy(trim_str, s1 + st, ed - st + 1);
+	_strlcpy(trim_str, s1 + st, ed - st + 2);
 	return (trim_str);
 }

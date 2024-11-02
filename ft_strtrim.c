@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 12:48:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 12:52:01 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		ed;
 	char	*trim_str;
 
-	if (s1 == NULL || *s1 == '\0' || set == NULL || *set == '\0')
+	if (s1 == NULL || *s1 == '\0')
 		return (ft_strdup(""));
+	if (set == NULL || *set == '\0')
+		return (ft_strdup(s1));
 	st = 0;
 	ed = ft_strlen((char *)s1) - 1;
 	while (st <= ed && ft_strchr(set, s1[st]) != NULL)

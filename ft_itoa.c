@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 20:45:44 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 12:59:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,49 +28,6 @@ static int	_numlen(int n)
 	return (len);
 }
 
-static int	_strlen(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-static void	*_memcpy(void *dst, const void *src, size_t len)
-{
-	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
-
-	if (dst == NULL || src == NULL)
-		return (dst);
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dst);
-}
-
-static char	*_strdup(const char *s1)
-{
-	size_t	l;
-	char	*d;
-
-	if (s1 == NULL)
-		return (NULL);
-	l = _strlen(s1);
-	d = malloc(l + 1);
-	if (!d)
-		return (NULL);
-	return ((char *)_memcpy(d, s1, l + 1));
-}
-
 char	*ft_itoa(int n)
 {
 	char	*s;
@@ -79,9 +36,9 @@ char	*ft_itoa(int n)
 
 	num = n;
 	if (n == 0)
-		return (_strdup("0"));
+		return (ft_strdup("0"));
 	if (n == INT_MIN)
-		return (_strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	len = _numlen(n);
 	s = (char *)malloc(len + (n < 0));
 	if (!s)

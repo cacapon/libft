@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:41:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 18:48:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:01:59 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,6 @@ static size_t	_wordlen(char const *s, char c)
 	return (len);
 }
 
-static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	copied;
-
-	copied = 0;
-	if (dstsize == 0)
-		return (_wordlen(src, '\0'));
-	while (copied < dstsize - 1 && *src)
-	{
-		*dst++ = *src++;
-		copied++;
-	}
-	*dst = '\0';
-	return (copied + _wordlen(src, '\0'));
-}
-
 static char	**free_result(char **result, size_t index)
 {
 	while (index > 0)
@@ -85,7 +69,7 @@ char	**ft_split(char const *s, char c)
 			result[index] = (char *)malloc((_wordlen(s, c) + 1) * sizeof(char));
 			if (!result[index])
 				return (free_result(result, index));
-			_strlcpy(result[index], s, _wordlen(s, c) + 1);
+			ft_strlcpy(result[index], s, _wordlen(s, c) + 1);
 			index++;
 			s += _wordlen(s, c);
 		}

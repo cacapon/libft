@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 21:40:48 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:00:48 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ static int	_get_digit(int nb)
 	return (digit);
 }
 
-static void	_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	int	digit;
@@ -60,7 +55,7 @@ void	ft_putnbr_fd(int n, int fd)
 	digit = _get_digit(n);
 	if (n < 0)
 	{
-		_putchar_fd('-', fd);
+		ft_putchar_fd('-', fd);
 	}
 	while (digit > 0)
 	{
@@ -69,7 +64,7 @@ void	ft_putnbr_fd(int n, int fd)
 		{
 			num = -num;
 		}
-		_putchar_fd(('0' + num), fd);
+		ft_putchar_fd(('0' + num), fd);
 		digit--;
 	}
 }

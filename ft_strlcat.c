@@ -6,46 +6,22 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 09:59:27 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/31 16:36:18 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 13:06:36 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	_strlen(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	copied;
-
-	copied = 0;
-	if (dstsize == 0)
-		return (_strlen(src));
-	while (copied < dstsize - 1 && *src)
-	{
-		*dst++ = *src++;
-		copied++;
-	}
-	*dst = '\0';
-	return (copied + _strlen(src));
-}
-
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	l;
+	size_t	d_l;
+	size_t	s_l;
 
-	l = _strlen(dst);
-	if (l >= dstsize)
-		l = dstsize;
-	if (l == dstsize)
-		return (l + _strlen(src));
-	return (l + _strlcpy(dst + l, src, dstsize - l));
+	d_l = (size_t)ft_strlen(dst);
+	s_l = (size_t)ft_strlen(src);
+	if (d_l >= dstsize)
+		d_l = dstsize;
+	if (d_l == dstsize)
+		return (d_l + s_l);
+	return (d_l + ft_strlcpy(dst + d_l, src, dstsize - d_l));
 }

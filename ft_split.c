@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:41:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:01:59 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 14:02:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	result = (char **)malloc((_wordcount(s, c) + 1) * sizeof(char));
+	result = (char **)malloc((_wordcount(s, c) + 1) * sizeof(char *));
 	if (result == NULL)
 		return (NULL);
 	index = 0;

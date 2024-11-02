@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 10:59:26 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 11:22:23 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,39 @@ static size_t	_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (copied + _strlen(src));
 }
 
+static void	*_memcpy(void *dst, const void *src, size_t len)
+{
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
+
+	if (dst == NULL || src == NULL)
+		return (dst);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	i = 0;
+	while (i < len)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
+}
+
+static char	*_strdup(const char *s1)
+{
+	size_t	l;
+	char	*d;
+
+	if (s1 == NULL)
+		return (NULL);
+	l = _strlen(s1);
+	d = malloc(l + 1);
+	if (!d)
+		return (NULL);
+	return ((char *)_memcpy(d, s1, l + 1));
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
@@ -47,7 +80,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = _strlen(s);
 	if (start >= s_len)
-		return ft_strdup("");
+		return _strdup("");
 	if (start + len >= s_len)
 		len = s_len - start;
 	sub = malloc(len + 1);

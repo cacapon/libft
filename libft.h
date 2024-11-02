@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 21:40:08 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 10:39:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 char	*ft_itoa(int n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

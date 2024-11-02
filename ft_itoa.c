@@ -6,47 +6,48 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 12:59:39 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 15:08:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// (n <= 0)... True:1 False:0
-static int	_numlen(int n)
+static int	_count_digits(int n)
 {
-	int	len;
+	int	count;
 
-	len = (n <= 0);
 	if (n < 0)
 		n = -n;
-	while (n)
+	if (n == 0)
+		return (1);
+	count = 0;
+	while (n > 0)
 	{
 		n /= 10;
-		len++;
+		count++;
 	}
-	return (len);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*s;
-	int		len;
-	int		num;
+	char			*s;
+	int				len;
+	unsigned int	num;
 
 	num = n;
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
-	len = _numlen(n);
-	s = (char *)malloc(len + (n < 0));
+	len = _count_digits(n) + (n < 0);
+	s = (char *)malloc(len + 1);
 	if (!s)
 		return (NULL);
-	s[len - (n >= 0)] = '\0';
+	ft_memset(s, 0, (len + 1) * sizeof(char));
 	if (n < 0)
 		num = -n;
-	while (num)
+	while (num > 0)
 	{
 		s[--len] = (num % 10) + '0';
 		num /= 10;

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/31 19:57:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/02 10:59:26 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = _strlen(s);
 	if (start >= s_len)
-		return (NULL);
+		return ft_strdup("");
 	if (start + len >= s_len)
 		len = s_len - start;
 	sub = malloc(len + 1);

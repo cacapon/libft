@@ -5,23 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 09:59:27 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:49:12 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/11/03 18:32:57 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/11/03 18:33:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// msul base.
+static size_t	_strnlen(char *s, size_t n)
+{
+	const char	*p;
+
+	p = ft_memchr(s, 0, n);
+	if (p)
+		return (p - s);
+	else
+		return (n);
+}
+
+// msul base.
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	d_l;
-	size_t	s_l;
+	size_t	l;
 
-	d_l = ft_strlen(dst);
-	s_l = ft_strlen(src);
-	if (d_l >= dstsize)
-		d_l = dstsize;
-	if (d_l == dstsize)
-		return (d_l + s_l);
-	return (d_l + ft_strlcpy(dst + d_l, src, dstsize - d_l));
+	l = _strnlen(dst, dstsize);
+	if (l == dstsize)
+		return (l + ft_strlen(src));
+	return (l + ft_strlcpy(dst + l, src, dstsize - l));
 }

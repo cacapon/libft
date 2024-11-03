@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:26:29 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/29 13:17:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/03 17:18:16 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 	unsigned char	*s;
 	size_t			i;
 
-	if (dst == NULL || src == NULL)
-		return (dst);
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
 	i = 0;

@@ -8,7 +8,13 @@ SRCS	= 	ft_atoi.c     ft_isdigit.c  ft_memmove.c     ft_split.c     ft_strlcpy.c
 			ft_isascii.c  ft_memcpy.c   ft_putstr_fd.c   ft_strlcat.c   ft_strrchr.c 
 OBJS	= $(SRCS:.c=.o)
 
+BONUS_S = ft_lstnew.c
+BONUS_O = $(BONUS_S:.c=.o)
+
 all: $(TARGET)
+
+bonus: $(OBJS) $(BONUS_O)
+	ar rc $(TARGET) $(OBJS) $(BONUS_O)
 
 $(TARGET): $(OBJS)
 	ar rc $@ $^
@@ -24,4 +30,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re bonus

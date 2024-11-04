@@ -6,25 +6,24 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:26:29 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/03 17:18:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/04 18:18:29 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// This was created with the musl no conditions as a reference.
+// ATTENTION:
+// 	memcpy(NULL,NULL,3) will cause a segfault, unlike the standard mac library.
+// 	Depending on the unit test, it may cause a crash error, but we will not respond to it due to undefined behavior.
 void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
 	unsigned char	*d;
-	unsigned char	*s;
-	size_t			i;
+	const unsigned char	*s;
 
 	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	i = 0;
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
+	s = (const unsigned char *)src;
+	while (len--)
+		*d++ = *s++;
 	return (dst);
 }

@@ -6,32 +6,34 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:44:31 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/10/28 13:00:50 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/04 19:21:35 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	h_i;
-	size_t	n_i;
+	size_t	b_i;
+	size_t	l_i;
 
-	if (*needle == '\0')
-		return ((char *)haystack);
-	h_i = 0;
-	while (haystack[h_i] && h_i < len)
+	if (*little == '\0')
+		return ((char *)big);
+	if (len == 0)
+		return (NULL);
+	b_i = 0;
+	while (big[b_i] && b_i < len)
 	{
-		n_i = 0;
-		while (needle[n_i] && haystack[h_i + n_i] && (h_i + n_i) < len)
+		l_i = 0;
+		while (little[l_i] && big[b_i + l_i] && (b_i + l_i) < len)
 		{
-			if (haystack[h_i + n_i] != needle[n_i])
+			if (big[b_i + l_i] != little[l_i])
 				break ;
-			n_i++;
+			l_i++;
 		}
-		if (needle[n_i] == '\0')
-			return ((char *)&haystack[h_i]);
-		h_i++;
+		if (little[l_i] == '\0')
+			return ((char *)&big[b_i]);
+		b_i++;
 	}
 	return (NULL);
 }

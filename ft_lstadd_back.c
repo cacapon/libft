@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 21:56:11 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/04 23:18:57 by ttsubo           ###   ########.fr       */
+/*   Created: 2024/11/04 22:29:50 by ttsubo            #+#    #+#             */
+/*   Updated: 2024/11/04 23:11:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	t_list	*node;
+
+	if (*lst != NULL)
+	{
+		node = ft_lstlast(*lst);
+		node->next = new;
+	}
+	else
+		*lst = new;
 }

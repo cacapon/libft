@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:00:24 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/04 19:24:06 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s == NULL)
+		return ;
+	ft_putstr_fd(s,fd);
 	write(fd, "\n", 1);
 }

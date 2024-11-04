@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:21:04 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 13:07:48 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/04 19:25:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*new_s;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
 	new_s = ft_strdup(s);
 	if (new_s == NULL)
 		return (NULL);

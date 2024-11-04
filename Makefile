@@ -8,7 +8,7 @@ SRCS	= 	ft_atoi.c     ft_isdigit.c  ft_memmove.c     ft_split.c     ft_strlcpy.c
 			ft_isascii.c  ft_memcpy.c   ft_putstr_fd.c   ft_strlcat.c   ft_strrchr.c 
 OBJS	= $(SRCS:.c=.o)
 
-BONUS_S = ft_lstnew.c	ft_lstadd_front.c
+BONUS_S = ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c
 BONUS_O = $(BONUS_S:.c=.o)
 
 all: $(TARGET)

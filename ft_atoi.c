@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 18:46:01 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:53:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	ft_atoi(const char *str)
 	while (ft_isdigit(*str))
 	{
 		degit = *str - '0';
-		if ((num > IMAX / 10) || (num == IMAX / 10 && digit > IMAX % 10))
+		if ((num > IMAX / 10) || (num == IMAX / 10 && degit > IMAX % 10))
 			return (IMAX);
-		if ((num < IMIN / 10) || (num == IMIN / 10 && digit < -(IMIN % 10)))
+		if ((num < IMIN / 10) || (num == IMIN / 10 && degit < -(IMIN % 10)))
 			return (IMIN);
-		num = num * 10 + (sign * digit);
+		num = num * 10 + (sign * degit);
 		str++;
 	}
 	return (num);

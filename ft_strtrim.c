@@ -6,13 +6,14 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 17:28:27 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:51:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// TODO:trimでstartがendより大きい値になった時はその時点でから文字列を返したほうがいい
+// Reason for “ed - st + 2”: 
+// 		ed is index and +2 to reserve space for 0.
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	st;
@@ -29,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		st++;
 	while (ed >= st && ft_strchr(set, s1[ed]) != NULL)
 		ed--;
+	if (st > ed)
+		return (ft_strdup(""));
 	trim_str = malloc(ed - st + 2);
 	if (trim_str == NULL)
 		return (NULL);

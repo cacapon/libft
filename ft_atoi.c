@@ -6,11 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 17:21:35 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:39:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define IMAX INT_MAX
+#define IMIN INT_MIN
 
 static int	_isspace(int c)
 {
@@ -18,29 +20,31 @@ static int	_isspace(int c)
 		|| c == '\v');
 }
 
-// TODO:llong_max/minのオーバーフロー対策を入れる
+// Behavior in case of atoi over/underflow is undefined.
+// Therefore, INTMAX/INTMIN is returned by referring to the strtol specification.
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	int		sign;
-	long	num;
+	int	sign;
+	int	num;
+	int	degit;
 
-	i = 0;
 	sign = 1;
 	num = 0;
-	while (_isspace(str[i]))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
-	{
-		i++;
+	while (_isspace(*str))
+		str++;
+	if (*str == '+' || *str == '-')
+		str++;
+	if (*str == '-')
 		sign = -1;
-	}
-	while (ft_isdigit(str[i]))
+	while (ft_isdigit(*str))
 	{
-		num = num * 10 + (str[i] - '0');
-		i++;
+		degit = *str - '0';
+		if ((num > IMAX / 10) || (num == IMAX / 10 && digit > IMAX % 10))
+			return (IMAX);
+		if ((num < IMIN / 10) || (num == IMIN / 10 && digit < -(IMIN % 10)))
+			return (IMIN);
+		num = num * 10 + (sign * digit);
+		str++;
 	}
-	return (sign * (int)num);
+	return (num);
 }

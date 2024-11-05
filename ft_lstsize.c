@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:02:00 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/04 23:55:17 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:25:15 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		i;
+	size_t	i;
 	t_list	*now_node;
 
 	if (lst == NULL)

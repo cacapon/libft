@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:41:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 14:02:37 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:26:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static size_t	_wordcount(char const *s, char c)
 
 static size_t	_wordlen(char const *s, char c)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[len] && s[len] != c)

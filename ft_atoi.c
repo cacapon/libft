@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 12:57:01 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:21:35 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ static int	_isspace(int c)
 		|| c == '\v');
 }
 
+// TODO:llong_max/minのオーバーフロー対策を入れる
 int	ft_atoi(const char *str)
 {
-	int		i;
+	size_t	i;
 	int		sign;
 	long	num;
 

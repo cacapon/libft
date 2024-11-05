@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:48:02 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/01 21:19:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:27:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int	i;
+	size_t	i;
 
 	if (s == NULL || f == NULL)
 		return ;

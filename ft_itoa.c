@@ -6,13 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 15:08:37 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:25:56 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	_count_digits(int n)
+static size_t	_count_digits(int n)
 {
 	int	count;
 
@@ -32,7 +32,7 @@ static int	_count_digits(int n)
 char	*ft_itoa(int n)
 {
 	char			*s;
-	int				len;
+	size_t			len;
 	unsigned int	num;
 
 	num = n;

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 18:39:05 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:46:01 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ static int	_isspace(int c)
 		|| c == '\v');
 }
 
-// Behavior in case of atoi over/underflow is undefined.
-// Therefore, INTMAX/INTMIN is returned by referring to the strtol specification.
+// atoi over/underflow is undefined.
+// Overflow returns INT_MAX.
+// Underflow returns INT_MIN.
+// (Reference to the return value of strtol.)
 int	ft_atoi(const char *str)
 {
 	int	sign;

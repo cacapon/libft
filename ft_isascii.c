@@ -6,14 +6,13 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:45:10 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 18:40:54 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/05 19:07:09 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// '\0'is 0. '~' is 127
-int	ft_isascii(int c)
+int ft_isascii(int c)
 {
-	return ('\0' <= c && c <= '~');
+	return (0 <= c && c <= 127);
 }

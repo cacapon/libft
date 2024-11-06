@@ -6,16 +6,25 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:06 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 19:36:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Writes strings and newlines to file descriptors
 		ARGS:
+			s:	string to write
+			fd:	file descriptor
 	IN:
-	OUT:
+		s:	NULL or allocated memory space.
+		fd:	INT_MIN <= fd <= INT_MAX
+	OUT
+		normal:
+			No return value.
+			s and newlines are written to the file specified in fd.	
+		s is NULL:
+			Nothing to do.
 */
 
 #include "libft.h"

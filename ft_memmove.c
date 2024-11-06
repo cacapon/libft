@@ -6,16 +6,35 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:44:03 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 19:23:20 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Copying with overlap taken into account
 		ARGS:
+			dst: Area to hold the copied byte sequence
+			src: Byte sequence to be copied
+			len: Length to copy
 	IN:
+		dst:	NULL or allocated memory.
+		src:	NULL or allocated memory.
+		len:	0 <= len <= SIZE_T_MAX
 	OUT:
+		normal:
+			src and dst are the same:
+				return dst (Nothing to do.)
+			no overrap:
+				Memcpy and return value
+			Overlap and dst is in front of src:
+				Make a forward copy and return value
+			Overlap and src is in front of dst.
+				Make a backward copy and return value
+		dst is NULL or src is NULL:
+			Operation is not guaranteed due to undefined operation.
+		dst.length < n or src.length < n:
+			Operation is not guaranteed due to undefined operation.
 */
 
 #include "libft.h"

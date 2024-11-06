@@ -6,9 +6,17 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 18:53:14 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:05:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+	DESCRIPTION:
+		SUMMARY:
+		ARGS:
+	IN:
+	OUT:
+*/
 
 #include "libft.h"
 #define IMAX INT_MAX

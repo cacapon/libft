@@ -6,9 +6,17 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:45:51 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/02 15:09:38 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:08:09 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+	DESCRIPTION:
+		SUMMARY:
+		ARGS:
+	IN:
+	OUT:
+*/
 
 #include "libft.h"
 

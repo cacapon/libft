@@ -6,13 +6,21 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/05 18:51:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:08:05 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+	DESCRIPTION:
+		SUMMARY:
+		ARGS:
+	IN:
+	OUT:
+*/
+
 #include "libft.h"
 
-// Reason for “ed - st + 2”: 
+// Reason for “ed - st + 2”:
 // 		ed is index and +2 to reserve space for 0.
 char	*ft_strtrim(char const *s1, char const *set)
 {

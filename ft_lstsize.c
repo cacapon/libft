@@ -6,16 +6,22 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:02:00 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:41 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 18:31:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Returns the length of the list
 		ARGS:
+			lst: Pointer to list
 	IN:
+		lst:	NULL or Allocated memory
 	OUT:
+		normal:
+			Returns the length of the list	
+		lst is NULL:
+			return 0
 */
 
 #include "libft.h"

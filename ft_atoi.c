@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 12:23:43 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 14:34:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static int	_isspace(int c)
 //	Check for overflow in the next calculations.
 static int	_is_next_overflow(int num, int degit)
 {
-	return ((num > IMAX / 10) || (num == IMAX / 10 && degit > IMAX % 10));
+	return ((num > IMAX / 10) || (num == IMAX / 10 && degit > 7));
 }
 
 //	Check for underflow in the next calculations.
 static int	_is_next_underflow(int num, int degit)
 {
-	return ((num < IMIN / 10) || (num == IMIN / 10 && degit < -(IMIN % 10)));
+	return ((num < IMIN / 10) || (num == IMIN / 10 && degit < -8));
 }
 
 int	ft_atoi(const char *str)
@@ -60,22 +60,23 @@ int	ft_atoi(const char *str)
 
 	if (str == NULL)
 		return (0);
+	sign = 1;
 	num = 0;
 	while (_isspace(*str))
 		str++;
-	if (*str == '+' || *str == '-')
-		str++;
 	if (*str == '-')
 		sign = -1;
+	if (*str == '+' || *str == '-')
+		str++;
 	while (ft_isdigit(*str))
 	{
 		degit = *str - '0';
-		if (_is_next_overflow(num, degit))
+		if (_is_next_overflow(sign * num, sign * degit))
 			return (IMAX);
-		if (_is_next_underflow(num, degit))
+		if (_is_next_underflow(sign * num, sign * degit))
 			return (IMIN);
-		num = num * 10 + (sign * degit);
+		num = num * 10 + degit;
 		str++;
 	}
-	return (num);
+	return (sign * num);
 }

@@ -6,16 +6,31 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:41:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:16 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 19:51:07 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Split a string with a delimiter
 		ARGS:
+			s: String to be split
+			c: delimiter
 	IN:
+		s:	NULL or allocated memory.
+		c:	0 <= c <= 127
 	OUT:
+		normal:
+			Returns an array of strings divided by words.
+			The terminator is null.
+		s is NULL:
+			return NULL
+		Failed to allocate space for split words:
+			return NULL
+		Failed to allocate memory area for word:
+			Deallocates the array currently storing the word and returns NULL.
+		c is out of range:
+			return NULL
 */
 
 #include "libft.h"
@@ -64,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	size_t	index;
 
-	if (s == NULL)
+	if (!s || c < 0 || 127 < c)
 		return (NULL);
 	result = (char **)malloc((_wordcount(s, c) + 1) * sizeof(char *));
 	if (result == NULL)

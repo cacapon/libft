@@ -6,20 +6,28 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:05:37 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 15:37:32 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Converts a given integer to a string
 		ARGS:
+			n: Integer to be converted to string
 	IN:
+		n:	INT_MIN <= n <= INT_MAX
 	OUT:
+		normal:
+			Returns an integer converted to a string
+		memory allocation failure:
+			return NULL
+		
 */
 
 #include "libft.h"
 
+// Return the number of digits 
 static size_t	_count_digits(int n)
 {
 	int	count;

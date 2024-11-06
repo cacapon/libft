@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:56:11 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 16:02:53 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 17:52:17 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 		normal:
 			No return value
 			Add new to the top of lst.
-		lst == NULL:
+		lst is NULL:
 			make lst with new at the top.
-		new == NULL:
+		new is NULL:
 			Nothing to do.
 */
 

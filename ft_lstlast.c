@@ -6,16 +6,22 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 22:08:18 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 17:53:11 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Returns the last node of the passed list.
 		ARGS:
+			lst: Pointer to list
 	IN:
+		lst: NULL or Allocated memory
 	OUT:
+		normal:
+			Returns the last node of the passed list.
+		lst is NULL:
+			return NULL		
 */
 
 #include "libft.h"

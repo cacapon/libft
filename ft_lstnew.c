@@ -6,16 +6,23 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 21:05:43 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:38 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 18:22:13 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Create a new node.
 		ARGS:
+			contents: Contents to be registered in the node
 	IN:
+		content: NULL or Allocated memory
 	OUT:
+		normal:
+			Registers the contents into the allocated t_list->contents 
+			and returns a pointer to that node.
+		malloc failed:
+			return NULL
 */
 
 #include "libft.h"

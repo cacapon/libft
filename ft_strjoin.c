@@ -6,16 +6,24 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:16:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:38 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 20:09:11 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Combine s1 and s2 and return with new memory.
 		ARGS:
+			s1:	string1
+			s2:	string2
 	IN:
+		s1:	NULL or allocated memory.
+		s2:	NULL or allocated memory.
 	OUT:
+		normal:
+			Returns the address of the string that concatenates s1 and s2.
+		malloc failed:
+			return NULL	
 */
 
 #include "libft.h"
@@ -26,9 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s2_len;
 	char	*new_str;
 
-	if (s1 == NULL)
-		return (NULL);
-	if (s2 == NULL)
+	if (!s1 || !s2)
 		return (NULL);
 	s1_len = (size_t)ft_strlen((char *)s1);
 	s2_len = (size_t)ft_strlen((char *)s2);

@@ -6,16 +6,35 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 18:32:57 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:41 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 20:27:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Safely bind src to dst.
 		ARGS:
+			dst:
+				String before attaching.
+				Assuming sufficient space is available
+			src:
+				String to be concatenated behind
+			dstsize:
+				Size reserved by dst
 	IN:
+		dst:		NULL or allocated memory.
+		src:		NULL or allocated memory.
+		destsize:	0 <= dstsize <= SIZE_T_MAX	
 	OUT:
+		noormal:
+			return src length.
+			and copy src to the end of dst as much as possible
+		No room in dst memory:
+			return src length.
+			but nothing to do.
+		dst or src is null
+			Operation is not guaranteed due to undefined operation.
+			
 */
 
 #include "libft.h"

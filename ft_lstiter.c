@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 23:41:27 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 17:48:11 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 18:00:43 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 			f:	 Pointer to function to be applied
 	IN:
 		lst: NULL or Allocated memory
-		del: NULL or Allocated memory 
+		f: 	 NULL or Allocated memory 
 	OUT:
 		No return value.
 		The contents of lst changes as follows depending on the conditions.

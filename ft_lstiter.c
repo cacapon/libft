@@ -6,16 +6,29 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 23:41:27 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:06:25 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 17:48:11 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Iterate through the list 'lst', 
+		applying the function 'f' to the contents of each node.
 		ARGS:
+			lst: Pointer to node
+			f:	 Pointer to function to be applied
 	IN:
+		lst: NULL or Allocated memory
+		del: NULL or Allocated memory 
 	OUT:
+		No return value.
+		The contents of lst changes as follows depending on the conditions.
+		normal:
+			The contents of each node are after the function f is applied.
+		lst is NULL:
+			Nothing to do.
+		del is NULL:
+			Nothing to do.
 */
 
 #include "libft.h"

@@ -6,16 +6,34 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:44:31 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:55 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/07 10:13:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Search for little from big up to length n.
 		ARGS:
+			big:	Search target string
+			little:	Search word
+			len:	length
 	IN:
+		big:	NULL or allocated memory.
+		little:	NULL or allocated memory.
+		len:	0 <= n <= SIZE_T_MAX
 	OUT:
+		normal:
+			found a little inside a big
+				Returns the pointer to the “big” that was hit.
+			not found
+				return NULL
+			little is empty string
+				return big
+		undefined:
+			big is NULL
+				return NULL
+			little is NULL
+				Treat “little” as an empty string. -> return big
 */
 
 #include "libft.h"
@@ -25,9 +43,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	b_i;
 	size_t	l_i;
 
-	if (*little == '\0')
+	if (!little || *little == '\0')
 		return ((char *)big);
-	if (len == 0)
+	if (!big || len == 0)
 		return (NULL);
 	b_i = 0;
 	while (big[b_i] && b_i < len)

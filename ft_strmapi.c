@@ -6,16 +6,28 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:21:04 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:07:49 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/06 20:36:43 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Applies function f to a string one character at a time.
+		The applied string is stored in a separate memory area and returned.
 		ARGS:
+			s:	string
+			f:	function pointer.
 	IN:
+		s:	NULL or allocated memory.
+		f:	NULL or allocated memory.
 	OUT:
+		normal:	
+			Returns the address of the new string
+			to which function f is applied.		
+		Failed to allocate memory for new string:
+			return NULL
+		s or f is NULL
+			return NULL
 */
 
 #include "libft.h"

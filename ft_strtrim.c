@@ -6,22 +6,42 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:09:26 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 11:08:05 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 11:59:07 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	DESCRIPTION:
-		SUMMARY:
+		Remove the characters from the front and back of
+		the string s1 from the set
 		ARGS:
+			s1: The string you want to trim
+			set: Character set for trimming
 	IN:
+		s1:		NULL or allocated memory.
+		set:	NULL or allocated memory.
 	OUT:
+		normal:
+			Trimmed string
+		Trimmed string that failed to be allocated.
+			return NULL
+		undifined:
+			s1 is null or empty
+				return empty string
+			set is null or empty
+				return s1
+	memo:
+		Reason for “ed - st + 2”:
+			ed is index and +2 to reserve space for '\0'.
+		If s1 is all set characters:
+			st moves to the end,
+			ed does not move,
+			malloc becomes 0+2,
+			trim_str copies “\0” using ft_strlcpy.
 */
 
 #include "libft.h"
 
-// Reason for “ed - st + 2”:
-// 		ed is index and +2 to reserve space for 0.
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	st;
@@ -38,8 +58,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		st++;
 	while (ed >= st && ft_strchr(set, s1[ed]) != NULL)
 		ed--;
-	if (st > ed)
-		return (ft_strdup(""));
 	trim_str = malloc(ed - st + 2);
 	if (trim_str == NULL)
 		return (NULL);

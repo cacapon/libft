@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:12:21 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/09 13:52:24 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 13:56:55 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@
 		undifined:
 			s is NULL:
 				not found
-			c < 0:
-				not found
-			127 < c:
-				not found
+		c is outside the range of ASCII codes:
+			Executed after being cast to unsigned char
 */
 
 #include "libft.h"
@@ -41,7 +39,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	n;
 
-	if (!s || c < 0 || 127 < c)
+	if (!s)
 		return (NULL);
 	n = ft_strlen(s) + 1;
 	c = (unsigned char)c;

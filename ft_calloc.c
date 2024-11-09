@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:38:47 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 15:04:44 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 13:02:26 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 			Returns memory allocated by size multiplied by count.
 		failure:
 			Return NULL
+		0 byte memory ex: (n,0),(0,n),(0,0)
+			The C specification requires that it 
+			return either NULL or a valid pointer.
+			This function returns NULL.
 */
 
 #include "libft.h"

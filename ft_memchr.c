@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:28:42 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 18:53:07 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 12:29:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 			n:	Length to search
 	IN:
 		s:	NULL or allocated memory.
-		c:	0 <= c <= UCHAR_MAX
+		c:	INT_MIN <= c <= INT_MAX
 		n:	0 <= n <= SIZET_MAX
 	OUT:
 		normal:
@@ -30,10 +30,8 @@
 				return NULL
 		s is NULL:
 			return NULL
-		c<0:
-			not found -> return NULL
-		255<c:
-			not found -> return NULL
+		c is outside the ASCII range:
+			It is cast to an unsigned char and only the lower 8 bits are used.
 		s.length < n:
 			Operation is not guaranteed due to undefined operation.
 */
@@ -45,7 +43,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t				i;
 	const unsigned char	*us;
 	
-	if(s == NULL || c < 0 || UCHAR_MAX < c)
+	if(s == NULL)
 		return (NULL);
 	i = 0;
 	us = (const unsigned char *)s;

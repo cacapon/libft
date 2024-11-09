@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:12:21 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/07 10:32:04 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 13:52:24 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ char	*ft_strrchr(const char *s, int c)
 	c = (unsigned char)c;
 	while (n--)
 		if (s[n] == c)
-			return (char *)(s + n);
+			return ((char *)(s + n));
 	return (NULL);
 }

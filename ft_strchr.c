@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:12:21 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/09 12:53:25 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 13:51:45 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
 		return (NULL);
-	return ft_memchr(s,c, ft_strlen(s) + 1);
+	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }

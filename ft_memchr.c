@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:28:42 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/09 12:29:30 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 13:51:31 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t				i;
 	const unsigned char	*us;
-	
-	if(s == NULL)
+
+	if (s == NULL)
 		return (NULL);
 	i = 0;
 	us = (const unsigned char *)s;

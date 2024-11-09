@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 12:12:21 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 19:55:26 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/09 12:53:25 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,15 @@
 				return NULL
 		s is NULL:
 			return NULL
-		c<0:
-			not found -> return NULL
-		127<c:
-			not found -> return NULL
+		c is outside the range of ASCII codes:
+			Executed after being cast to unsigned char
 */
 
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s || c < 0 || 127 < c)
+	if (!s)
 		return (NULL);
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return ft_memchr(s,c, ft_strlen(s) + 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:38:47 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/09 13:02:26 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/10 12:25:38 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,24 @@
 		failure:
 			Return NULL
 		0 byte memory ex: (n,0),(0,n),(0,0)
-			The C specification requires that it 
+			The C specification requires that it
 			return either NULL or a valid pointer.
-			This function returns NULL.
+			This function basically returns a freeable valid pointer
 */
 
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	_size;
 	void	*_block;
 
 	if (count == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	if (size > SIZE_MAX / count)
 		return (NULL);
-	_size = count * size;
-	_block = malloc(_size);
+	_block = malloc(count * size);
 	if (!_block)
 		return (NULL);
-	ft_memset(_block, 0, _size);
+	ft_memset(_block, 0, count * size);
 	return (_block);
 }

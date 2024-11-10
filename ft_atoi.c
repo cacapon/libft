@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 14:34:25 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/10 11:17:14 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,20 @@
 			0-9		: any number
 	OUT:
 		normal:			INT_MIN	<= int(value) <= INT_MAX
-		overflow:		INT_MAX
-		underflow:		INT_MIN
-		str is NULL:	0
+		undefined:
+			overflow:		return INT_MAX
+			underflow:		return INT_MIN
+			str is NULL:	0
 		else:			0
+	memo:
+		The functions atof, atoi, atol, and atoll need not affect 
+		the value of the integer expression errno on an error. 
+		If the value of the result cannot be represented, 
+		the behavior is undefined. 
+		(
+			ISO/IEC 9899:201x Programming languages — C 
+			/ §7.22.1 Numeric conversion
+		)
 */
 
 #include "libft.h"

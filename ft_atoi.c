@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/10 13:43:03 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/10 13:53:52 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,14 @@
 			0-9		: any number
 	OUT:
 		normal:			INT_MIN	<= int(value) <= INT_MAX
+		int overflow:
+			The converted value of strtol is cast to LONG_MAX
+			LONG_MAX and above is (int)LONG_MAX
+		int underflow:
+			The converted value of strtol is cast to LONG_MIN
+			LONG_MIN and above is (int)LONG_MIN
 		undefined:
-			overflow:		return (int)LONG_MAX
-			underflow:		return (int)LONG_MIN
 			str is NULL:	0
-		else:			0
-	memo:
-		The functions atof, atoi, atol, and atoll need not affect
-		the value of the integer expression errno on an error.
-		If the value of the result cannot be represented,
-		the behavior is undefined.
-		(
-			ISO/IEC 9899:201x Programming languages — C
-			/ §7.22.1 Numeric conversion
-		)
 */
 
 #include "libft.h"

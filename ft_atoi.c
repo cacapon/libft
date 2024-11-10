@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/10 11:17:14 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/10 13:38:53 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@
 			str is NULL:	0
 		else:			0
 	memo:
-		The functions atof, atoi, atol, and atoll need not affect 
-		the value of the integer expression errno on an error. 
-		If the value of the result cannot be represented, 
-		the behavior is undefined. 
+		The functions atof, atoi, atol, and atoll need not affect
+		the value of the integer expression errno on an error.
+		If the value of the result cannot be represented,
+		the behavior is undefined.
 		(
-			ISO/IEC 9899:201x Programming languages — C 
+			ISO/IEC 9899:201x Programming languages — C
 			/ §7.22.1 Numeric conversion
 		)
 */
 
 #include "libft.h"
-#define IMAX INT_MAX
-#define IMIN INT_MIN
+#define LMAX LONG_MAX
+#define LMIN LONG_MIN
 
 //	Find out if it is space.
 //	The following characters are considered spaces in ascii code.
@@ -51,42 +51,48 @@ static int	_isspace(int c)
 }
 
 //	Check for overflow in the next calculations.
-static int	_is_next_overflow(int num, int degit)
+static int	_is_next_overflow(long int num, long int degit)
 {
-	return ((num > IMAX / 10) || (num == IMAX / 10 && degit > 7));
+	return ((num > LMAX / 10) || (num == LMAX / 10 && degit > 7));
 }
 
 //	Check for underflow in the next calculations.
-static int	_is_next_underflow(int num, int degit)
+static int	_is_next_underflow(long int num, long int degit)
 {
-	return ((num < IMIN / 10) || (num == IMIN / 10 && degit < -8));
+	return ((num < LMIN / 10) || (num == LMIN / 10 && degit < -8));
+}
+
+// base 10 only
+// Unlike in practice, errno notification is not performed.
+// endptr is not used because it is fixed at NULL
+static long int	_strtol_base10(const char *nptr)
+{
+	long int	sign;
+	long int	degit;
+	long int	num;
+
+	sign = 1;
+	num = 0;
+	while (_isspace(*nptr))
+		nptr++;
+	if (*nptr == '-')
+		sign = -1;
+	if (*nptr == '+' || *nptr == '-')
+		nptr++;
+	while (ft_isdigit(*nptr))
+	{
+		degit = *nptr - '0';
+		if (_is_next_overflow(sign * num, sign * degit))
+			return (LONG_MAX);
+		if (_is_next_underflow(sign * num, sign * degit))
+			return (LONG_MIN);
+		num = num * 10 + degit;
+		nptr++;
+	}
+	return (sign * num);
 }
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	num;
-	int	degit;
-
-	if (str == NULL)
-		return (0);
-	sign = 1;
-	num = 0;
-	while (_isspace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (ft_isdigit(*str))
-	{
-		degit = *str - '0';
-		if (_is_next_overflow(sign * num, sign * degit))
-			return (IMAX);
-		if (_is_next_underflow(sign * num, sign * degit))
-			return (IMIN);
-		num = num * 10 + degit;
-		str++;
-	}
-	return (sign * num);
+	return ((int)_strtol_base10(str));
 }

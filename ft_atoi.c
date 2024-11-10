@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:46:32 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/10 13:38:53 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/10 13:43:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 	OUT:
 		normal:			INT_MIN	<= int(value) <= INT_MAX
 		undefined:
-			overflow:		return INT_MAX
-			underflow:		return INT_MIN
+			overflow:		return (int)LONG_MAX
+			underflow:		return (int)LONG_MIN
 			str is NULL:	0
 		else:			0
 	memo:
@@ -94,5 +94,7 @@ static long int	_strtol_base10(const char *nptr)
 
 int	ft_atoi(const char *str)
 {
+	if (!str)
+		return (0);
 	return ((int)_strtol_base10(str));
 }

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:41:56 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/09 17:20:15 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/11 13:12:21 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s || (c < 0))
 		return (NULL);
-	result = (char **)malloc((_wordcount(s, c) + 1) * sizeof(char *));
+	result = malloc((_wordcount(s, c) + 1) * sizeof(char *));
 	if (result == NULL)
 		return (NULL);
 	index = 0;
@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			result[index] = (char *)malloc((_wordlen(s, c) + 1) * sizeof(char));
+			result[index] = malloc((_wordlen(s, c) + 1) * sizeof(char));
 			if (!result[index])
 				return (free_result(result, index));
 			ft_strlcpy(result[index], s, _wordlen(s, c) + 1);

@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:16:59 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/06 20:09:11 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/11 13:13:03 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = (size_t)ft_strlen((char *)s1);
-	s2_len = (size_t)ft_strlen((char *)s2);
-	new_str = (char *)malloc(s1_len + s2_len + 1);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	new_str = malloc(s1_len + s2_len + 1);
 	if (new_str == NULL)
 		return (NULL);
 	ft_strlcpy(new_str, s1, s1_len + 1);

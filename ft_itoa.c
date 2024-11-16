@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/11 13:11:50 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/16 19:00:17 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,9 @@ char	*ft_itoa(int n)
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	len = _count_digits(n) + (n < 0);
-	s = malloc(len + 1);
+	s = ft_calloc((len + 1) * sizeof(char), 1);
 	if (!s)
 		return (NULL);
-	ft_memset(s, 0, (len + 1) * sizeof(char));
 	if (n < 0)
 		num = -n;
 	while (num > 0)

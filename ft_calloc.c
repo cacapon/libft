@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:38:47 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/10 12:25:38 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/16 19:02:06 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	*ft_calloc(size_t count, size_t size)
 	_block = malloc(count * size);
 	if (!_block)
 		return (NULL);
-	ft_memset(_block, 0, count * size);
+	ft_bzero(_block, count * size);
 	return (_block);
 }

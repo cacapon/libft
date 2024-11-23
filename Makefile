@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 10:03:51 by ttsubo            #+#    #+#              #
-#    Updated: 2024/11/23 16:37:50 by ttsubo           ###   ########.fr        #
+#    Updated: 2024/11/23 17:52:44 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ SRCS	= 	ft_atoi.c     ft_isdigit.c  ft_memmove.c     ft_split.c     ft_strlcpy.c
 BONUS_S = 	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c		\
 			ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
 
+ifeq ($(MAKECMDGOALS), debug)
+	CC := gcc -Wall -Wextra -Werror -g
+endif
 ifeq ($(MAKECMDGOALS), bonus)
     SRCS := $(SRCS)$(BONUS_S)
 endif
@@ -29,9 +32,9 @@ endif
 OBJS	= $(SRCS:.c=.o)
 B_OBJS	= $(BONUS_S:.c=.o)
 
-all: $(TARGET)
-
-bonus: $(TARGET)
+all		: $(TARGET)
+debug	: $(TARGET)
+bonus	: $(TARGET)
 
 $(TARGET): $(OBJS)
 	ar rc $@ $^
@@ -48,4 +51,4 @@ fclean: clean
 re: fclean all
 
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus debug

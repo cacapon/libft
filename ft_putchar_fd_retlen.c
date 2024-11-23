@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 16:48:47 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 17:51:29 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
  *
  * @param c			: character
  * @param fd 		: file descriptor
- * @return ssize_t	: return Return the number written, or -1.
+ * @return size_t	: char length.
  */
 size_t	ft_putchar_fd_retlen(char c, int fd)
 {
 	ft_putchar_fd(c, fd);
-	return (ft_strlen(&c));
+	return (ft_isascii(c));
 }

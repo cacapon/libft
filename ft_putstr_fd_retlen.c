@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 12:44:09 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:52:39 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
  * 
  * @param s 		: string to write
  * @param fd 		: file descriptor
- * @return ssize_t	: Return the number written, or -1.
+ * @return size_t	: Return the number written.
  */
-ssize_t	ft_putstr_fd_retlen(char *s, int fd)
+size_t	ft_putstr_fd_retlen(char *s, int fd)
 {
 	if (s == NULL)
 		return (0);
-	return (write(fd, s, ft_strlen(s)));
+	ft_putstr_fd(s, fd);
+	return (ft_strlen(s));
 }

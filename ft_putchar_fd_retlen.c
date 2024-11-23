@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 21:08:33 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 12:39:33 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 15:53:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
  */
 ssize_t	ft_putchar_fd_retlen(char c, int fd)
 {
-	return (write(fd, &c, 1));
+	ft_putchar_fd(c, fd);
+	return (ft_strlen(&c));
 }

@@ -6,64 +6,43 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:50:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/20 14:38:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:10:38 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION:
-		Converts a given integer to a string
-		ARGS:
-			n: Integer to be converted to string
-	IN:
-		n:	INT_MIN <= n <= INT_MAX
-	OUT:
-		normal:
-			Returns an integer converted to a string
-		memory allocation failure:
-			return NULL
-
-*/
-
 #include "libft.h"
 
-// Return the number of digits
-static size_t	_count_digits(unsigned int n)
+/**
+ * @brief utoaを再帰で処理するための内部関数
+ *
+ * @param [in]	value	: 変換する値
+ * @param [out]	str		: 変換した値を格納する文字列
+ * @param [out]	index 	: 処理している現在のインデックス
+ */
+static void	_utoa_recursive(unsigned int u_num, char *str, int *index)
 {
-	size_t	count;
-
-	if (n == 0)
-		return (1);
-	count = 0;
-	while (n > 0)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
+	if (u_num >= 10)
+		_utoa_recursive(u_num / 10, str, index);
+	str[(*index)++] = (u_num % 10) + '0';
 }
 
 /**
- * @brief Convert unsigned int to string
- * 
- * @param n			: Number to be converted
- * @return char* 
+ * @brief unsigned intのvalueを文字列に変換します。
+ *
+ * @param value		: 変換対象の値
+ * @param dst		: 変換後の文字列を格納する文字列用の領域
+ * @return char*	: 変換後の文字列の先頭ポインタ
+ * @note	自作関数のためmallocの許可がありません。
+ * 			dstを渡す必要があります。
  */
-char	*ft_utoa(unsigned int n)
+char	*ft_utoa(unsigned int u_num, char *dst)
 {
-	char			*s;
-	size_t			len;
+	int	index;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	len = _count_digits(n);
-	s = ft_calloc((len + 1) * sizeof(char), 1);
-	if (!s)
+	if (!dst)
 		return (NULL);
-	while (n > 0)
-	{
-		s[--len] = (n % 10) + '0';
-		n /= 10;
-	}
-	return (s);
+	index = 0;
+	_utoa_recursive(u_num, dst, &index);
+	dst[index] = '\0';
+	return (dst);
 }

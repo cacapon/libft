@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/11/23 15:54:25 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/11/23 16:37:28 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_utoa(unsigned int n);
 size_t	ft_putchar_fd_retlen(char c, int fd);
 size_t	ft_putstr_fd_retlen(char *s, int fd);
+void	ft_getptr(char *dst, void *ptr, size_t dstsize);
 
 #endif

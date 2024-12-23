@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:08:36 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/07 19:07:23 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 09:56:37 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # endif
 
 // include
+# include "libft.h"
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -78,9 +79,7 @@ typedef struct s_string
 
 // util function
 t_sts			*set_sts(t_sts *result);
-void			*gnl_memset(void *b, int c, size_t len);
 char			*gnl_strncpy(char *dst, const char *src, size_t srcsize);
-void			*gnl_calloc(size_t count, size_t size);
 void			*gnl_line_free(t_string *line);
 
 // get_next_line

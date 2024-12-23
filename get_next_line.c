@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:07:44 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/07 19:07:02 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 09:55:47 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static int	_ft_putc(t_string *line, char c, t_getc_sts sts)
 	if (line->len + 1 >= line->capa)
 	{
 		line->capa = (line->len + 1) * 2;
-		tmp = gnl_calloc(line->capa, 1);
+		tmp = ft_calloc(line->capa, 1);
 		if (!tmp)
 			return (PUTC_ERR);
 		gnl_strncpy(tmp, line->str, line->len);
@@ -87,10 +87,10 @@ static t_buf	*_gnl_buf_init(t_buf **s_buf, int fd)
 		return (NULL);
 	if (!*s_buf)
 	{
-		*s_buf = gnl_calloc(sizeof(t_buf), 1);
+		*s_buf = ft_calloc(sizeof(t_buf), 1);
 		if (!*s_buf)
 			return (NULL);
-		(*s_buf)->buf = gnl_calloc(BUFFER_SIZE, 1);
+		(*s_buf)->buf = ft_calloc(BUFFER_SIZE, 1);
 		if (!(*s_buf)->buf)
 		{
 			free(*s_buf);

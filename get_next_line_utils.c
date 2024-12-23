@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:08:41 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/07 18:09:17 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 09:55:58 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,48 +30,6 @@ char	*gnl_strncpy(char *dst, const char *src, size_t srcsize)
 	if (i < srcsize)
 		dst[i] = '\0';
 	return (dst);
-}
-
-/**
- * @brief メモリ領域bにサイズlenまでcの内容で埋めます
- *
- * @param b			: セットするメモリ領域
- * @param c			: セットする文字(255以上の上位ビットは無視されます)
- * @param len		: セットするサイズ
- * @return void*	: bのアドレス
- */
-void	*gnl_memset(void *b, int c, size_t len)
-{
-	size_t			i;
-	unsigned char	*ptr;
-
-	i = 0;
-	ptr = (unsigned char *)b;
-	while (i < len)
-		ptr[i++] = (unsigned char)c;
-	return (b);
-}
-
-/**
- * @brief count * sizeのメモリ領域を0埋めした状態で確保します
- * 
- * @param count		: 確保するメモリ領域の個数 
- * @param size		: メモリ領域のサイズ
- * @return void*	: 確保したメモリ領域の先頭ポインタ 
- */
-void	*gnl_calloc(size_t count, size_t size)
-{
-	void	*_block;
-
-	if (count == 0 || size == 0)
-		return (malloc(0));
-	if (size > SIZE_MAX / count)
-		return (NULL);
-	_block = malloc(count * size);
-	if (!_block)
-		return (NULL);
-	gnl_memset(_block, 0, count * size);
-	return (_block);
 }
 
 /**

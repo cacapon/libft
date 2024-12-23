@@ -6,16 +6,21 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2024/12/07 19:30:04 by ttsubo           ###   ########.fr       */
+/*   Updated: 2024/12/23 09:57:30 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+// standard include
 # include <limits.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+// custom include
+# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -23,6 +28,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+// librt
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);

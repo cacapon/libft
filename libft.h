@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/24 10:14:40 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/01/24 10:54:48 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 // custom include
 # include "get_next_line/get_next_line.h"
-# include "ft_printf.h"
+# include "ft_printf/includes/ft_printf.h"
 
 typedef struct s_list
 {

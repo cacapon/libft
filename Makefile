@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 10:03:51 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/24 10:20:15 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/24 10:56:19 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS	= 	ft_atoi.c     ft_isdigit.c  ft_memmove.c     ft_split.c     ft_strlcpy.c
 			ft_isalpha.c  ft_memcmp.c   ft_putnbr_fd.c   ft_strjoin.c   ft_strnstr.c				\
 			ft_isascii.c  ft_memcpy.c   ft_putstr_fd.c   ft_strlcat.c   ft_strrchr.c				\
 			$(GNL_DIR)get_next_line.c	$(GNL_DIR)get_next_line_utils.c 													\
-			ft_printf.c	ft_printf_utils1.c ft_printf_utils2.c format_handler.c format_handler2.c	
 
 BONUS_S = 	ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	ft_lstlst.c	ft_lstadd_back.c		\
 			ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c	ft_lstmap.c
@@ -43,6 +42,7 @@ debug	: init $(TARGET)
 bonus	: init $(TARGET)
 
 $(TARGET): $(OBJS)
+	$(MAKE) -C ft_printf
 	ar rc $@ $^
 
 init:
@@ -52,9 +52,11 @@ init:
 	$(CC) -c $< -o $@ 
 
 clean:
+	$(MAKE) -C ft_printf clean
 	rm -f $(OBJS) $(B_OBJS)
 
 fclean: clean
+	$(MAKE) -C ft_printf fclean
 	rm -f $(TARGET)
 
 re: fclean all

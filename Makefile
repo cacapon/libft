@@ -6,7 +6,7 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 10:03:51 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/24 10:15:57 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/24 10:20:15 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,15 @@ endif
 OBJS	= $(SRCS:.c=.o)
 B_OBJS	= $(BONUS_S:.c=.o)
 
-all		: $(TARGET)
-debug	: $(TARGET)
-bonus	: $(TARGET)
+all		: init $(TARGET)
+debug	: init $(TARGET)
+bonus	: init $(TARGET)
 
 $(TARGET): $(OBJS)
 	ar rc $@ $^
+
+init:
+	git submodule update --init
 
 %.o: %.c
 	$(CC) -c $< -o $@ 
@@ -57,4 +60,4 @@ fclean: clean
 re: fclean all
 
 
-.PHONY: all clean fclean re bonus debug
+.PHONY: all clean fclean re bonus init debug

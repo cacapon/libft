@@ -6,12 +6,16 @@
 #    By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 10:03:51 by ttsubo            #+#    #+#              #
-#    Updated: 2025/01/24 10:56:19 by ttsubo           ###   ########.fr        #
+#    Updated: 2025/01/24 12:27:59 by ttsubo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET	= libft.a
 CC 		= cc -Wall -Wextra -Werror
+
+#ft_printf
+PTF		= libftprintf.a
+PTF_DIR	= ft_printf/
 
 GNL_DIR = get_next_line/
 
@@ -37,29 +41,38 @@ endif
 OBJS	= $(SRCS:.c=.o)
 B_OBJS	= $(BONUS_S:.c=.o)
 
-all		: init $(TARGET)
-debug	: init $(TARGET)
-bonus	: init $(TARGET)
+all		: common 
+debug	: common
+bonus	: common
+
+common : init $(TARGET) $(PTF_DIR)$(PTF)
 
 $(TARGET): $(OBJS)
-	$(MAKE) -C ft_printf
 	ar rc $@ $^
 
+$(PTF_DIR)$(PTF):
+	$(MAKE) -C $(PTF_DIR)
+
 init:
-	git submodule update --init
+	@if git submodule status | grep -q '^-'; then \
+		echo "Updating git submodules..."; \
+		git submodule update --init; \
+	else \
+		echo "Submodules are already up to date."; \
+	fi
 
 %.o: %.c
 	$(CC) -c $< -o $@ 
 
 clean:
-	$(MAKE) -C ft_printf clean
+	$(MAKE) -C $(PTF_DIR) clean
 	rm -f $(OBJS) $(B_OBJS)
 
 fclean: clean
-	$(MAKE) -C ft_printf fclean
+	$(MAKE) -C $(PTF_DIR) fclean
 	rm -f $(TARGET)
 
 re: fclean all
 
 
-.PHONY: all clean fclean re bonus init debug
+.PHONY: all clean fclean re bonus common init debug

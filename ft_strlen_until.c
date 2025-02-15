@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_strlen_until.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 15:30:54 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/02/15 15:43:15 by ttsubo           ###   ########.fr       */
+/*   Created: 2025/02/15 15:38:39 by ttsubo            #+#    #+#             */
+/*   Updated: 2025/02/15 15:42:27 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief 文字列sを長さnまでのsの文字数を返します。
+ * @brief 文字stopまでの文字列sの長さを返します。
  *
  * @param s
- * @param n
+ * @param stop
  * @return size_t
- * @note ft_memchrで見つからなかった場合、nがそのまま返されます。
+ * @note stopが見つからない場合、文字列sの長さが返されます。
  */
-size_t	ft_strnlen(const char *s, size_t n)
+size_t	ft_strlen_until(const char *s, char stop)
 {
-	const char	*p = ft_memchr(s, 0, n);
+	const char	*pos = ft_strchr(s, stop);
 
-	if (p)
-		return (p - s);
-	return (n);
+	if (pos)
+		return ((size_t)(pos - s));
+	else
+		return (ft_strlen(s));
 }

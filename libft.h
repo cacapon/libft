@@ -6,7 +6,7 @@
 /*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:41:08 by ttsubo            #+#    #+#             */
-/*   Updated: 2025/01/26 16:29:45 by ttsubo           ###   ########.fr       */
+/*   Updated: 2025/02/15 15:42:16 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 int		ft_abs(int a);
+size_t	ft_strnlen(const char *s, size_t n);
+size_t	ft_strlen_until(const char *s, char stop);
 
 #endif
